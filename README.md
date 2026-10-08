@@ -23,7 +23,7 @@ Memory math explicitly distinguishes decimal GB from binary GiB. FP16 weight-onl
 
 Profiler traces include real labelled data transfer, forward, backward and optimizer phases. CPU mode never fabricates CUDA memory. Synchronization and profiler overhead are included; traces are diagnostic, not serving latency measurements. `chrome://tracing` or a compatible trace viewer can inspect trace.json.
 
-Distributed runner trains a small randomly initialized MLP with all parameters; no claim of 8B full fine-tuning, multi-GPU completion or 70B OOM remediation without actual logs. Do not load third-party pickle checkpoints.
+Distributed runner trains a small randomly initialized MLP with all parameters; its original CPU evidence does not prove 8B full fine-tuning or 70B OOM remediation. The separate Transformer dual-T4 result below now supplies actual DDP/FSDP GPU logs. Do not load third-party pickle checkpoints.
 
 Sources: [PyTorch Profiler](https://docs.pytorch.org/docs/stable/profiler.html), [FSDP](https://docs.pytorch.org/docs/stable/fsdp.html), [DeepSpeed ZeRO](https://www.deepspeed.ai/tutorials/zero/).
 
@@ -43,8 +43,10 @@ JSONL requires a `text` field. Full trainable model, no LoRA; sharded initializa
 
 Upload `notebooks/kaggle_dual_t4.ipynb` to Kaggle, choose GPU T4 x2 and enable Internet, then Run all. GPU access depends on your account/quota. The runner refuses fewer than two real visible CUDA devices and records their UUIDs.
 
-The same random-initialized eight-block causal Transformer is full-parameter trained for 30 steps with DDP, then FSDP FULL_SHARD. DDP stores replicated parameters; FSDP reports actual per-rank shard element counts. Both validate matching rank outputs on identical input and export allocator peaks per step. Mixed FP16 computations, FP32 AdamW states and gradient scaling; no pretrained Llama/Mistral fine-tuning or 70B claim. Transformer causality and full gradient/update flow are checked locally; real two-GPU execution remains pending.
+The same random-initialized eight-block causal Transformer is full-parameter trained for 30 steps with DDP, then FSDP FULL_SHARD. DDP stores replicated parameters; FSDP reports actual per-rank shard element counts. Both validate matching rank outputs on identical input and export allocator peaks per step. Mixed FP16 computations, FP32 AdamW states and gradient scaling; no pretrained Llama/Mistral fine-tuning or 70B claim. Transformer causality and full gradient/update flow are checked locally; real two-GPU execution has now been verified from exported Kaggle receipts: [report, graph and raw rank logs](results/dual-t4/README.md).
 
 CPU DDP uses Gloo; CUDA collectives use NCCL. CPU multiprocess tests are not physical GPU simulations or evidence of FSDP GPU memory savings. Full 8B Adam states alone can exceed 32 GB, so two T4s do not imply a fitting 7B/8B full fine-tuning workload. Measure the prepared manageable Transformer first.
 
 Sources: [Kaggle notebooks](https://www.kaggle.com/docs/notebooks), [PyTorch distributed backends](https://docs.pytorch.org/docs/stable/distributed.html), [FSDP](https://docs.pytorch.org/docs/stable/fsdp.html).
+
+Verified dual-T4 result: FSDP halved resident parameters per rank and reduced measured peak allocated memory by 57.66% in the 29.48M synthetic Transformer workload. Warm-step median was 48.94 ms DDP versus 53.39 ms FSDP (one sequential run each); no universal speedup claim.

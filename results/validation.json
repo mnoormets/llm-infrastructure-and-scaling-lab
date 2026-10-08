@@ -5,13 +5,16 @@
   "cpu_ddp_world_size": 2,
   "cpu_ddp_steps": 5,
   "rank_weights_match": true,
-  "multi_gpu_executed": false,
-  "fsdp_executed": false,
+  "multi_gpu_executed": true,
+  "fsdp_executed": true,
   "deepspeed_executed": false,
   "full_pretrained_llm_executed": false,
   "budget": "free only",
   "total_tests_passed": 10,
   "causal_transformer_cpu_gradient_checks": true,
   "kaggle_dual_gpu_runner_prepared": true,
-  "kaggle_dual_gpu_runner_executed": false
+  "kaggle_dual_gpu_runner_executed": true,
+  "fsdp_dual_t4_executed": true,
+  "dual_t4_evidence": "results/dual-t4/validation.json",
+  "pretrained_7b_full_finetuning_executed": false
 }

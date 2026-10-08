@@ -1,0 +1,33 @@
+{
+  "status": "completed",
+  "physical_gpu_count": 2,
+  "modes": [
+    {
+      "mode": "ddp",
+      "full_parameter_count": 29479936,
+      "all_rank_parameter_elements": [
+        29479936,
+        29479936
+      ],
+      "max_allocated_gib_per_rank": [
+        0.6927876472473145,
+        0.6927876472473145
+      ],
+      "scope": "DDP replicated versus FSDP FULL_SHARD parameter counts; memory includes activation and communication overhead"
+    },
+    {
+      "mode": "fsdp",
+      "full_parameter_count": 29479936,
+      "all_rank_parameter_elements": [
+        14739968,
+        14739968
+      ],
+      "max_allocated_gib_per_rank": [
+        0.29335641860961914,
+        0.29335641860961914
+      ],
+      "scope": "DDP replicated versus FSDP FULL_SHARD parameter counts; memory includes activation and communication overhead"
+    }
+  ],
+  "scope": "Synthetic full-parameter Transformer; no pretrained 7B training"
+}

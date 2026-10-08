@@ -1,0 +1,56 @@
+{
+  "archive_sha256": "853dba0eb42404d207b577928307ff6b4c7c30b833d4034cb560742ee8712d98",
+  "source_commit": "b213d718e96aacf85c912e26d7da597b25aa1afa",
+  "status": "validated",
+  "physical_gpu_count": 2,
+  "distinct_gpu_uuids_present": true,
+  "full_parameters": 29479936,
+  "steps_per_mode_per_rank": 30,
+  "all_steps_finite": true,
+  "all_recorded_gradient_scales_unchanged": true,
+  "rank_output_agreement": "Reported assertion passed in runner; raw output/checksum tensors not exported for independent replay",
+  "maximum_ddp_fsdp_loss_difference": 0.000396728515625,
+  "metrics": {
+    "ddp": {
+      "parameter_elements_per_rank": [
+        29479936,
+        29479936
+      ],
+      "peak_allocated_gib_per_rank": [
+        0.6927876472473145,
+        0.6927876472473145
+      ],
+      "peak_reserved_gib_per_rank": [
+        0.765625,
+        0.765625
+      ],
+      "median_slow_rank_step_seconds_after_5_warmup": 0.048941382000009526,
+      "warm_step_definition": "Steps 6..30, maximum of rank durations per step; one sequential run per method"
+    },
+    "fsdp": {
+      "parameter_elements_per_rank": [
+        14739968,
+        14739968
+      ],
+      "peak_allocated_gib_per_rank": [
+        0.29335641860961914,
+        0.29335641860961914
+      ],
+      "peak_reserved_gib_per_rank": [
+        0.494140625,
+        0.494140625
+      ],
+      "median_slow_rank_step_seconds_after_5_warmup": 0.05339279899999383,
+      "warm_step_definition": "Steps 6..30, maximum of rank durations per step; one sequential run per method"
+    }
+  },
+  "fsdp_peak_allocated_reduction_fraction": 0.5765565108222903,
+  "scope": "Random-initialized 29.48M causal Transformer, full-parameter synthetic training, two Tesla T4 GPUs",
+  "limitations": [
+    "No pretrained 7B/70B full fine-tuning",
+    "No local GPU replay",
+    "One sequential run per method, not a broad speed benchmark",
+    "Allocator memory excludes CUDA context and some external allocations",
+    "Random synthetic next-token task is not a language quality evaluation"
+  ]
+}
