@@ -1,0 +1,118 @@
+{
+  "status": "completed",
+  "scope": "Small MLP full training profile, not a 7B/70B benchmark",
+  "device": "cpu",
+  "torch": "2.14.1+cpu",
+  "steps": 5,
+  "elapsed_seconds": 0.28889560000243364,
+  "profiler_and_sync_overhead_included": true,
+  "losses": [
+    1.0210142135620117,
+    1.0143208503723145,
+    1.0670933723449707,
+    1.0287489891052246,
+    1.0078092813491821
+  ],
+  "memory_phases": [
+    {
+      "step": 0,
+      "phase": "after_data_transfer",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 0,
+      "phase": "after_forward",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 0,
+      "phase": "after_backward",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 0,
+      "phase": "after_optimizer",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 1,
+      "phase": "after_data_transfer",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 1,
+      "phase": "after_forward",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 1,
+      "phase": "after_backward",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 1,
+      "phase": "after_optimizer",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 2,
+      "phase": "after_data_transfer",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 2,
+      "phase": "after_forward",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 2,
+      "phase": "after_backward",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 2,
+      "phase": "after_optimizer",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 3,
+      "phase": "after_data_transfer",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 3,
+      "phase": "after_forward",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 3,
+      "phase": "after_backward",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 3,
+      "phase": "after_optimizer",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 4,
+      "phase": "after_data_transfer",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 4,
+      "phase": "after_forward",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 4,
+      "phase": "after_backward",
+      "cuda_memory_available": false
+    },
+    {
+      "step": 4,
+      "phase": "after_optimizer",
+      "cuda_memory_available": false
+    }
+  ]
+}

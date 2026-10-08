@@ -1,0 +1,18 @@
+{
+  "status": "completed",
+  "mode": "ddp",
+  "device": "cpu",
+  "world_size": 2,
+  "rank": 0,
+  "steps": 5,
+  "full_trainable_parameters_before_wrapping": 16576,
+  "losses": [
+    1.0845532417297363,
+    0.9956009387969971,
+    1.0720720291137695,
+    1.179194688796997,
+    1.1020019054412842
+  ],
+  "ddp_rank_weights_match": true,
+  "scope": "Small full-parameter MLP smoke run; not pretrained LLM fine-tuning or 70B scaling"
+}

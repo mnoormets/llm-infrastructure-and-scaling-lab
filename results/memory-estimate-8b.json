@@ -1,0 +1,92 @@
+{
+  "scope": "Analytical estimates, not measured VRAM or proof of fit. Excludes activations, communication/all-gather buffers, KV cache, quantization workspaces and fragmentation. Shards are idealized averages; offload changes placement, not total state size.",
+  "parameters": 8000000000,
+  "weights_fp16": {
+    "bytes": 16000000000,
+    "decimal_GB": 16.0,
+    "binary_GiB": 14.901161193847656
+  },
+  "weights_4bit_ideal": {
+    "bytes": 4000000000,
+    "decimal_GB": 4.0,
+    "binary_GiB": 3.725290298461914
+  },
+  "kv_example": {
+    "assumptions": "32 layers, 8 KV heads, head_dim 128, 8192 tokens, batch 1, 2-byte KV dtype",
+    "storage": {
+      "bytes": 1073741824,
+      "decimal_GB": 1.073741824,
+      "binary_GiB": 1.0
+    }
+  },
+  "zero": {
+    "0": {
+      "weights": {
+        "bytes": 16000000000,
+        "decimal_GB": 16.0,
+        "binary_GiB": 14.901161193847656
+      },
+      "gradients": {
+        "bytes": 16000000000,
+        "decimal_GB": 16.0,
+        "binary_GiB": 14.901161193847656
+      },
+      "optimizer_and_master": {
+        "bytes": 96000000000,
+        "decimal_GB": 96.0,
+        "binary_GiB": 89.40696716308594
+      }
+    },
+    "1": {
+      "weights": {
+        "bytes": 16000000000,
+        "decimal_GB": 16.0,
+        "binary_GiB": 14.901161193847656
+      },
+      "gradients": {
+        "bytes": 16000000000,
+        "decimal_GB": 16.0,
+        "binary_GiB": 14.901161193847656
+      },
+      "optimizer_and_master": {
+        "bytes": 48000000000.0,
+        "decimal_GB": 48.0,
+        "binary_GiB": 44.70348358154297
+      }
+    },
+    "2": {
+      "weights": {
+        "bytes": 16000000000,
+        "decimal_GB": 16.0,
+        "binary_GiB": 14.901161193847656
+      },
+      "gradients": {
+        "bytes": 8000000000.0,
+        "decimal_GB": 8.0,
+        "binary_GiB": 7.450580596923828
+      },
+      "optimizer_and_master": {
+        "bytes": 48000000000.0,
+        "decimal_GB": 48.0,
+        "binary_GiB": 44.70348358154297
+      }
+    },
+    "3": {
+      "weights": {
+        "bytes": 8000000000.0,
+        "decimal_GB": 8.0,
+        "binary_GiB": 7.450580596923828
+      },
+      "gradients": {
+        "bytes": 8000000000.0,
+        "decimal_GB": 8.0,
+        "binary_GiB": 7.450580596923828
+      },
+      "optimizer_and_master": {
+        "bytes": 48000000000.0,
+        "decimal_GB": 48.0,
+        "binary_GiB": 44.70348358154297
+      }
+    }
+  }
+}

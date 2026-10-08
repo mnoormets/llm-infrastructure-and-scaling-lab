@@ -1,0 +1,45 @@
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg       CPU Mem  Self CPU Mem    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                               backward         9.68%       6.238ms        31.82%      20.493ms       4.099ms       4.62 MB         -20 B             5  
+                              Optimizer.step#AdamW.step         8.97%       5.776ms        31.04%      19.992ms       3.998ms       2.01 MB     -10.03 MB             5  
+                                          data_transfer         7.02%       4.524ms        11.63%       7.488ms       1.498ms      32.00 KB    -128.00 KB             5  
+                                    aten::gelu_backward         5.48%       3.529ms         5.48%       3.529ms     705.740us     160.00 KB     160.00 KB             5  
+                                         aten::mse_loss         4.96%       3.193ms         8.54%       5.502ms       1.100ms      80.00 KB           0 B             5  
+                                            aten::addmm         4.67%       3.007ms         4.89%       3.150ms     315.020us     240.00 KB     240.00 KB            10  
+                                             aten::sqrt         4.61%       2.966ms         4.61%       2.966ms     148.315us       5.01 MB       5.01 MB            20  
+                                                forward         4.52%       2.909ms        24.96%      16.074ms       3.215ms     416.00 KB     -64.00 KB             5  
+                                            aten::lerp_         4.15%       2.674ms         4.15%       2.674ms     133.685us           0 B           0 B            20  
+                                aten::mse_loss_backward         3.46%       2.228ms         5.80%       3.734ms     373.400us      80.00 KB           0 B            10  
+                                                aten::t         3.45%       2.220ms         4.29%       2.766ms      61.458us           0 B           0 B            45  
+                                               aten::mm         3.32%       2.137ms         3.33%       2.142ms     142.827us       5.16 MB       5.16 MB            15  
+                                              aten::sum         2.81%       1.809ms         2.87%       1.846ms     123.060us      15.00 KB      15.00 KB            15  
+                                             aten::gelu         2.34%       1.509ms         2.34%       1.509ms     301.780us     160.00 KB     160.00 KB             5  
+                                            aten::randn         2.26%       1.455ms         4.59%       2.956ms     295.610us     160.00 KB           0 B            10  
+                                       MseLossBackward0         2.20%       1.420ms         6.17%       3.973ms     794.620us      80.00 KB           0 B             5  
+                              aten::_local_scalar_dense         2.13%       1.370ms         2.13%       1.370ms      54.816us           0 B           0 B            25  
+                                          aten::normal_         2.03%       1.307ms         2.03%       1.307ms     130.740us           0 B           0 B            10  
+                                             aten::add_         1.85%       1.191ms         2.63%       1.691ms      42.287us           0 B        -160 B            40  
+                                             aten::mul_         1.84%       1.187ms         2.62%       1.687ms      42.173us           0 B        -160 B            40  
+                                              aten::div         1.60%       1.028ms         1.90%       1.221ms      61.070us       5.01 MB       5.01 MB            20  
+                                         aten::addcmul_         1.59%       1.026ms         1.59%       1.026ms      51.325us           0 B           0 B            20  
+                                         AddmmBackward0         1.43%     920.200us         5.04%       3.244ms     324.430us       5.16 MB           0 B            10  
+                                         aten::addcdiv_         1.32%     850.600us         1.32%     850.600us      42.530us           0 B           0 B            20  
+                                             aten::div_         1.05%     678.700us         1.54%     992.300us     198.460us           0 B         -20 B             5  
+                                         aten::_to_copy         1.05%     673.800us         2.07%       1.331ms      12.676us         420 B           0 B           105  
+                                             aten::mean         0.97%     622.000us         3.54%       2.278ms     455.680us           0 B           0 B             5  
+                                            aten::fill_         0.94%     603.900us         0.94%     603.900us      25.162us           0 B           0 B            24  
+    autograd::engine::evaluate_function: AddmmBackward0         0.87%     563.500us         7.83%       5.042ms     504.200us       4.78 MB    -400.00 KB            10  
+                                             TBackward0         0.81%     523.800us         0.96%     617.000us      61.700us           0 B           0 B            10  
+                                            aten::copy_         0.79%     511.500us         0.79%     511.500us       4.448us           0 B           0 B           115  
+                                          GeluBackward0         0.75%     482.300us         6.23%       4.011ms     802.200us     160.00 KB           0 B             5  
+                                        aten::transpose         0.74%     476.700us         0.85%     545.400us      12.120us           0 B           0 B            45  
+                                       aten::zeros_like         0.47%     305.700us         1.51%     975.400us      75.031us       2.08 MB           0 B            13  
+autograd::engine::evaluate_function: MseLossBackward...         0.47%     300.400us         6.63%       4.274ms     854.700us           0 B     -80.00 KB             5  
+                                           aten::linear         0.46%     295.200us         9.22%       5.936ms     593.610us     240.00 KB           0 B            10  
+                                    aten::empty_strided         0.43%     276.800us         0.43%     276.800us       2.346us       2.01 MB       2.01 MB           118  
+                                            aten::empty         0.36%     234.100us         0.36%     234.100us       9.754us     320.02 KB     320.02 KB            24  
+                                aten::broadcast_tensors         0.34%     218.300us         0.34%     218.300us      43.660us           0 B           0 B             5  
+                                              optimizer         0.30%     192.900us        31.34%      20.185ms       4.037ms       2.01 MB           0 B             5  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 64.413ms

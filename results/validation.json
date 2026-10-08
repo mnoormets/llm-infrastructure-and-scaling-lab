@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-09",
+  "formula_tests_passed": 8,
+  "cpu_profile_executed": true,
+  "cpu_ddp_world_size": 2,
+  "cpu_ddp_steps": 5,
+  "rank_weights_match": true,
+  "multi_gpu_executed": false,
+  "fsdp_executed": false,
+  "deepspeed_executed": false,
+  "full_pretrained_llm_executed": false,
+  "budget": "free only"
+}
