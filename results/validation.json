@@ -9,5 +9,9 @@
   "fsdp_executed": false,
   "deepspeed_executed": false,
   "full_pretrained_llm_executed": false,
-  "budget": "free only"
+  "budget": "free only",
+  "total_tests_passed": 10,
+  "causal_transformer_cpu_gradient_checks": true,
+  "kaggle_dual_gpu_runner_prepared": true,
+  "kaggle_dual_gpu_runner_executed": false
 }

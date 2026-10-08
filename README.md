@@ -38,3 +38,13 @@ torchrun --standalone --nproc-per-node=2 -m infra.hf_zero3 --model YOUR_AUTHORIZ
 ```
 
 JSONL requires a `text` field. Full trainable model, no LoRA; sharded initialization configuration is created before model loading. This route and FSDP/DeepSpeed require matching Linux/CUDA/DeepSpeed dependencies and must be validated on available GPUs; no paid rental is authorized. An 8B full Adam training state alone can approach 128 decimal GB with master weights, before activations and temporary gathered layers. Two 24GB cards are not automatically sufficient. ZeRO3 does not promise every model fits. CPU-offload is explained but not silently enabled.
+
+## Free Kaggle dual-T4 experiment
+
+Upload `notebooks/kaggle_dual_t4.ipynb` to Kaggle, choose GPU T4 x2 and enable Internet, then Run all. GPU access depends on your account/quota. The runner refuses fewer than two real visible CUDA devices and records their UUIDs.
+
+The same random-initialized eight-block causal Transformer is full-parameter trained for 30 steps with DDP, then FSDP FULL_SHARD. DDP stores replicated parameters; FSDP reports actual per-rank shard element counts. Both validate matching rank outputs on identical input and export allocator peaks per step. Mixed FP16 computations, FP32 AdamW states and gradient scaling; no pretrained Llama/Mistral fine-tuning or 70B claim. Transformer causality and full gradient/update flow are checked locally; real two-GPU execution remains pending.
+
+CPU DDP uses Gloo; CUDA collectives use NCCL. CPU multiprocess tests are not physical GPU simulations or evidence of FSDP GPU memory savings. Full 8B Adam states alone can exceed 32 GB, so two T4s do not imply a fitting 7B/8B full fine-tuning workload. Measure the prepared manageable Transformer first.
+
+Sources: [Kaggle notebooks](https://www.kaggle.com/docs/notebooks), [PyTorch distributed backends](https://docs.pytorch.org/docs/stable/distributed.html), [FSDP](https://docs.pytorch.org/docs/stable/fsdp.html).
